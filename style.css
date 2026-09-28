@@ -1,0 +1,766 @@
+CSS
+* {
+  box-sizing: border-box;
+}
+
+/* =====================================
+   CUERPO DE LA PÁGINA
+===================================== */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+  color: #172033;
+
+  background-image: url("./img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+header {
+  background: #0a1931;
+  color: #b3cfe5;
+
+  padding: 25px 20px;
+
+  text-align: center;
+
+  box-shadow: 0 4px 15px #4a7fa7;
+}
+
+.titulo-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+
+  object-fit: contain;
+  display: block;
+}
+
+.titulo-header h1 {
+  margin: 0 0 10px;
+
+  font-size: 32px;
+}
+
+.titulo-header p {
+  margin: 0;
+
+  font-size: 16px;
+}
+
+/* =====================================
+   CONTENIDO PRINCIPAL
+===================================== */
+
+main {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 35px auto;
+  padding: 20px;
+}
+
+/* =====================================
+   SECCIONES
+===================================== */
+
+section {
+  background: rgba(255, 255, 255, 0.75);
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.20);
+
+  backdrop-filter: blur(6px);
+}
+
+/* =====================================
+   SELECCIÓN DE ROL
+===================================== */
+
+#roleSelection {
+  text-align: center;
+}
+
+#roleSelection h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.role-buttons {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.role-btn {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 20px;
+  margin: 10px auto;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #021024;
+  color: white;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  min-height: 100px;
+
+  transition: 0.2s;
+}
+
+.role-btn strong {
+  display: block;
+
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.role-btn span {
+  display: block;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  text-align: center;
+
+  opacity: 0.9;
+}
+
+.role-btn:hover {
+  background: #546383;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* =====================================
+   LOGIN
+===================================== */
+
+#login {
+  max-width: 500px;
+
+  margin: 0 auto;
+}
+
+#login h2 {
+  text-align: center;
+
+  margin-top: 0;
+}
+
+#roleText {
+  text-align: center;
+
+  color: #666;
+
+  margin-bottom: 25px;
+}
+
+/* =====================================
+   INPUTS
+===================================== */
+
+input {
+  display: block;
+
+  width: 100%;
+
+  padding: 14px;
+  margin: 12px 0;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* =====================================
+   BOTONES GENERALES
+===================================== */
+
+button {
+  padding: 12px 18px;
+  margin: 5px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: background 0.15s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* =====================================
+   BOTÓN VOLVER
+===================================== */
+
+#backRoleBtn {
+  display: block;
+
+  margin: 15px auto 0;
+
+  background: #6b7280;
+}
+
+#backRoleBtn:hover {
+  background: #4b5563;
+}
+
+/* =====================================
+   MAPA
+===================================== */
+
+.controls {
+  margin-bottom: 15px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px;
+}
+
+.controls button {
+  margin: 0;
+}
+
+#stopBtn {
+  background: #dc2626;
+}
+
+#stopBtn:hover {
+  background: #b91c1c;
+}
+
+#logoutBtn {
+  background: #555;
+}
+
+#logoutBtn:hover {
+  background: #333;
+}
+
+#status {
+  padding: 12px;
+
+  margin-bottom: 15px;
+
+  background: #eef2ff;
+
+  border-radius: 10px;
+
+  text-align: center;
+}
+
+#map {
+  height: 600px;
+
+  width: 100%;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+}
+
+/* =====================================
+   PANEL PRINCIPAL / DASHBOARD
+===================================== */
+
+#dashboard {
+  width: 100%;
+
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  background: rgba(245, 247, 250, 0.95);
+}
+
+/* Cuando el dashboard está oculto */
+#dashboard[hidden] {
+  display: none !important;
+}
+
+/* =====================================
+   MENÚ LATERAL
+===================================== */
+
+.sidebar {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  width: 250px;
+  height: 100vh;
+
+  background: #0a1931;
+
+  color: white;
+
+  padding: 25px 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow:
+    4px 0 15px rgba(0, 0, 0, 0.2);
+
+  z-index: 1000;
+}
+
+/* =====================================
+   LOGO DEL MENÚ
+===================================== */
+
+.sidebar-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px;
+
+  margin-bottom: 30px;
+}
+
+.sidebar-logo img {
+  width: 50px;
+  height: 50px;
+
+  object-fit: contain;
+}
+
+.sidebar-logo h2 {
+  font-size: 18px;
+
+  margin: 0;
+}
+
+/* =====================================
+   BOTONES DEL MENÚ
+===================================== */
+
+.sidebar nav {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.menu-btn {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  margin: 0;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: white;
+
+  text-align: left;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.menu-btn:hover {
+  background: #1c3154;
+}
+
+.menu-btn.active {
+  background: #2563eb;
+}
+
+/* =====================================
+   CERRAR SESIÓN DEL DASHBOARD
+===================================== */
+
+.logout-dashboard {
+  margin-top: auto;
+
+  width: 100%;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #dc2626;
+
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+.logout-dashboard:hover {
+  background: #b91c1c;
+}
+
+/* =====================================
+   CONTENIDO DEL DASHBOARD
+===================================== */
+
+.dashboard-content {
+  margin-left: 250px;
+
+  min-height: 100vh;
+
+  padding: 45px;
+}
+
+/* =====================================
+   ENCABEZADO DEL DASHBOARD
+===================================== */
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 8px;
+
+  font-size: 32px;
+
+  color: #0a1931;
+}
+
+.dashboard-header p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 16px;
+}
+
+/* =====================================
+   CONTENEDOR DE PROFESORES
+===================================== */
+
+.profesores-container {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 20px;
+
+  max-width: 1000px;
+}
+
+/* =====================================
+   TARJETA DEL PROFESOR
+===================================== */
+
+.profesor-card {
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.10);
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.profesor-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================================
+   INFORMACIÓN DEL PROFESOR
+===================================== */
+
+.profesor-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.profesor-info h3 {
+  margin: 0 0 7px;
+
+  font-size: 18px;
+
+  color: #172033;
+}
+
+/* =====================================
+   AVATAR
+===================================== */
+
+.avatar {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+
+  font-weight: bold;
+}
+
+/* =====================================
+   ESTADO
+===================================== */
+
+.estado {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+.estado-punto {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  display: inline-block;
+}
+
+/* PROFESOR EN LÍNEA */
+
+.estado-punto.online {
+  background: #22c55e;
+
+  box-shadow:
+    0 0 7px rgba(34, 197, 94, 0.7);
+}
+
+/* PROFESOR INACTIVO */
+
+.estado-punto.inactivo {
+  background: #64748b;
+}
+
+/* =====================================
+   VER UBICACIÓN
+===================================== */
+
+.ver-mapa {
+  color: #2563eb;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  white-space: nowrap;
+}
+
+/* =====================================
+   DASHBOARD OCUPA TODA LA PANTALLA
+===================================== */
+
+main:has(#dashboard) {
+  max-width: none;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 700px) {
+
+  .sidebar {
+    width: 210px;
+  }
+
+  .dashboard-content {
+    margin-left: 210px;
+
+    padding: 25px;
+  }
+
+  .sidebar-logo h2 {
+    display: none;
+  }
+
+  .profesores-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+
+  header {
+    padding: 28px 15px;
+  }
+
+  .titulo-header {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .titulo-header h1 {
+    font-size: 26px;
+  }
+
+  main {
+    margin: 20px auto;
+
+    padding: 12px;
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  .role-btn {
+    min-height: 110px;
+  }
+
+  #map {
+    height: 450px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .sidebar {
+    width: 70px;
+
+    padding: 15px 8px;
+  }
+
+  .sidebar-logo {
+    justify-content: center;
+  }
+
+  .sidebar-logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu-btn {
+    text-align: center;
+
+    font-size: 0;
+
+    padding: 14px 5px;
+  }
+
+  .menu-btn:first-letter {
+    font-size: 20px;
+  }
+
+  .logout-dashboard {
+    font-size: 0;
+  }
+
+  .dashboard-content {
+    margin-left: 70px;
+
+    padding: 20px;
+  }
+}
+

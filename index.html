@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Personas Mapa</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       ENCABEZADO
+  ========================== -->
+
+  <header>
+
+    <div class="titulo-header">
+
+      <img
+        src="./img/logo.jpeg"
+        alt="Logo Personas Mapa"
+        class="logo"
+      >
+
+      <div>
+        <h1>¿¿Donde Estan Los Profes??</h1>
+
+        <p id="welcomeMessage">
+          Bienvenido a la aplicación de ubicación de profesores
+        </p>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         SELECCIÓN DE USUARIO
+    ========================== -->
+
+    <section id="roleSelection">
+
+      <h2>Selecciona tu tipo de usuario</h2>
+
+      <div class="role-buttons">
+
+        <button id="studentBtn" class="role-btn">
+
+          <strong>Estudiante</strong>
+
+          <span>
+            Ver la ubicación de los profesores
+          </span>
+
+        </button>
+
+
+        <button id="teacherBtn" class="role-btn">
+
+          <strong>Profesor</strong>
+
+          <span>
+            Compartir mi ubicación dentro de la institución
+          </span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LOGIN
+    ========================== -->
+
+    <section id="login" hidden>
+
+      <h2 id="loginTitle">
+        Iniciar sesión
+      </h2>
+
+      <p id="roleText"></p>
+
+      <input
+        id="email"
+        type="email"
+        placeholder="Correo electrónico"
+      >
+
+      <input
+        id="password"
+        type="password"
+        placeholder="Contraseña"
+      >
+
+      <button id="registerBtn">
+        Crear cuenta
+      </button>
+
+      <button id="loginBtn">
+        Iniciar sesión
+      </button>
+
+      <button id="backRoleBtn" type="button">
+        Volver
+      </button>
+
+    </section>
+
+
+    <!-- =========================
+         NUEVO PANEL PRINCIPAL
+    ========================== -->
+
+    <section id="dashboard" hidden>
+
+      <!-- MENÚ LATERAL -->
+
+      <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+          <img
+            src="./img/logo.jpeg"
+            alt="Logo"
+          >
+
+          <h2>
+            General
+          </h2>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            class="menu-btn active"
+            onclick="mostrarInicio()"
+          >
+            🏠 Inicio
+          </button>
+
+
+          <button
+            class="menu-btn"
+            onclick="mostrarPerfil()"
+          >
+            👤 Mi perfil
+          </button>
+
+
+          <button
+            class="menu-btn"
+            onclick="mostrarEstadisticas()"
+          >
+            📊 Estadísticas
+          </button>
+
+
+          <button
+            class="menu-btn"
+            onclick="mostrarDatos()"
+          >
+            📋 Datos
+          </button>
+
+
+          <button
+            class="menu-btn"
+            onclick="mostrarConfiguracion()"
+          >
+            ⚙️ Configuración
+          </button>
+
+
+          <button
+            class="menu-btn"
+            onclick="irAlMapa()"
+          >
+            🗺️ Mapa
+          </button>
+
+        </nav>
+
+
+        <button
+          class="logout-dashboard"
+          onclick="cerrarSesion()"
+        >
+          🚪 Cerrar sesión
+        </button>
+
+      </aside>
+
+
+      <!-- CONTENIDO PRINCIPAL -->
+
+      <div class="dashboard-content">
+
+        <div class="dashboard-header">
+
+          <h1>
+            Profesores
+          </h1>
+
+          <p>
+            Consulta quién se encuentra disponible actualmente.
+          </p>
+
+        </div>
+
+
+        <!-- LISTA DE PROFESORES -->
+
+        <div
+          id="profesores-container"
+          class="profesores-container"
+        >
+
+          <!-- CARLOS -->
+
+          <div
+            class="profesor-card"
+            onclick="seleccionarProfesor('Carlos')"
+          >
+
+            <div class="profesor-info">
+
+              <div class="avatar">
+                C
+              </div>
+
+              <div>
+
+                <h3>
+                  Carlos
+                </h3>
+
+                <div class="estado">
+
+                  <span class="estado-punto online"></span>
+
+                  <span>
+                    En línea
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <span class="ver-mapa">
+              Ver ubicación →
+            </span>
+
+          </div>
+
+
+          <!-- ANA -->
+
+          <div
+            class="profesor-card"
+            onclick="seleccionarProfesor('Ana')"
+          >
+
+            <div class="profesor-info">
+
+              <div class="avatar">
+                A
+              </div>
+
+              <div>
+
+                <h3>
+                  Ana
+                </h3>
+
+                <div class="estado">
+
+                  <span class="estado-punto inactivo"></span>
+
+                  <span>
+                    Inactiva
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <span class="ver-mapa">
+              Ver ubicación →
+            </span>
+
+          </div>
+
+
+          <!-- JUAN -->
+
+          <div
+            class="profesor-card"
+            onclick="seleccionarProfesor('Juan')"
+          >
+
+            <div class="profesor-info">
+
+              <div class="avatar">
+                J
+              </div>
+
+              <div>
+
+                <h3>
+                  Juan
+                </h3>
+
+                <div class="estado">
+
+                  <span class="estado-punto online"></span>
+
+                  <span>
+                    En línea
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <span class="ver-mapa">
+              Ver ubicación →
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAPA
+    ========================== -->
+
+    <section id="app" hidden>
+
+      <div class="controls">
+
+        <button id="shareBtn">
+          Compartir mi ubicación
+        </button>
+
+        <button id="stopBtn">
+          Dejar de compartir
+        </button>
+
+        <button id="logoutBtn">
+          Cerrar sesión
+        </button>
+
+      </div>
+
+
+      <div id="status">
+        Ubicación no compartida.
+      </div>
+
+
+      <div id="map"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- LEAFLET -->
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  ></script>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script
+    type="module"
+    src="app.js"
+  ></script>
+
+</body>
+
+</html>
